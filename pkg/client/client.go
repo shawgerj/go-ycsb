@@ -120,7 +120,7 @@ func (w *worker) run(ctx context.Context) {
 		opsCount := 1
 
 		// print stats every million ops
-		if (w.opCount % 1000000) == 0 && w.opCount != 0 {
+		if (w.opsDone % 3000000) == 0  && w.opsDone != 0 {
 			fmt.Printf(w.workload.GetStats(w.workDB))
 		}
 		
