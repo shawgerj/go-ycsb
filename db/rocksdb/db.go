@@ -61,6 +61,7 @@ const (
 	rocksdbFilterPolicy                     = "rocksdb.filter_policy"
 	rocksdbIndexType                        = "rocksdb.index_type"
 	rocksdbWALDir                           = "rocksdb.wal_dir"
+	rocksdbDisableWAL                       = "rocksdb.disable_wal"
 	// TODO: add more configurations
 )
 
@@ -94,13 +95,15 @@ func (c rocksDBCreator) Create(p *properties.Properties) (ycsb.DB, error) {
 		return nil, err
 	}
 
+	wopts := getWOpts(p)
+
 	return &rocksDB{
 		p:         p,
 		db:        db,
 		r:         util.NewRowCodec(p),
 		bufPool:   util.NewBufPool(),
 		readOpts:  gorocksdb.NewDefaultReadOptions(),
-		writeOpts: gorocksdb.NewDefaultWriteOptions(),
+		writeOpts: wopts,
 	}, nil
 }
 
@@ -161,6 +164,12 @@ func getOptions(p *properties.Properties) *gorocksdb.Options {
 	opts.SetBlockBasedTableFactory(getTableOptions(p))
 
 	return opts
+}
+
+func getWOpts(p *properties.Properties) *gorocksdb.WriteOptions {
+	wopts := gorocksdb.NewDefaultWriteOptions()
+	wopts.DisableWAL(p.GetBool(rocksdbDisableWAL, false))
+	return wopts
 }
 
 func (db *rocksDB) Close() error {
@@ -252,6 +261,7 @@ func (db *rocksDB) Insert(ctx context.Context, table string, key string, values 
 	if err != nil {
 		return err
 	}
+
 	return db.db.Put(db.writeOpts, rowKey, buf)
 }
 
