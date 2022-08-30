@@ -118,6 +118,12 @@ func (w *worker) run(ctx context.Context) {
 	for w.opCount == 0 || w.opsDone < w.opCount {
 		var err error
 		opsCount := 1
+
+		// print stats every million ops
+		if (w.opCount % 1000000) == 0 && w.opCount != 0 {
+			fmt.Printf(w.workload.GetStats(w.workDB))
+		}
+		
 		if w.doTransactions {
 			if w.doBatch {
 				err = w.workload.DoBatchTransaction(ctx, w.batchSize, w.workDB)

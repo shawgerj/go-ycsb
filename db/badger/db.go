@@ -258,6 +258,10 @@ func (db *badgerDB) Delete(ctx context.Context, table string, key string) error 
 	return err
 }
 
+func (db *badgerDB) GetStats() string {
+	return ""
+}
+
 func init() {
 	ycsb.RegisterDBCreator("badger", badgerCreator{})
 }

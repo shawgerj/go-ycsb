@@ -191,6 +191,10 @@ func (db *rawDB) Delete(ctx context.Context, table string, key string) error {
 	return db.db.Delete(ctx, db.getRowKey(table, key))
 }
 
+func (db *rawDB) GetStats() string {
+	return ""
+}
+
 func (db *rawDB) BatchDelete(ctx context.Context, table string, keys []string) error {
 	rowKeys := make([][]byte, len(keys))
 	for i, key := range keys {

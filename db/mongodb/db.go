@@ -116,6 +116,10 @@ func (m *mongoDB) Delete(ctx context.Context, table string, key string) error {
 	return nil
 }
 
+func (db *mongoDB) GetStats() string {
+	return ""
+}
+
 type mongodbCreator struct {
 }
 

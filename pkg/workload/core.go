@@ -258,6 +258,10 @@ func (c *core) verifyRow(state *coreState, key string, values map[string][]byte)
 	}
 }
 
+func (c *core) GetStats(db ycsb.DB) string {
+	return db.GetStats()
+}
+
 // DoInsert implements the Workload DoInsert interface.
 func (c *core) DoInsert(ctx context.Context, db ycsb.DB) error {
 	state := ctx.Value(stateKey).(*coreState)

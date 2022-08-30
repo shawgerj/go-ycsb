@@ -436,6 +436,10 @@ func (db *mysqlDB) Delete(ctx context.Context, table string, key string) error {
 	return db.execQuery(ctx, query, key)
 }
 
+func (db *mysqlDB) GetStats() string {
+	return ""
+}
+
 func (db *mysqlDB) BatchDelete(ctx context.Context, table string, keys []string) error {
 	args := make([]interface{}, 0, len(keys))
 	buf := db.bufPool.Get()

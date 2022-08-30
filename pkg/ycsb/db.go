@@ -68,6 +68,9 @@ type DB interface {
 	// table: The name of the table.
 	// key: The record key of the record to delete.
 	Delete(ctx context.Context, table string, key string) error
+
+	// GetStats from rocksdb
+	GetStats() string
 }
 
 type BatchDB interface {

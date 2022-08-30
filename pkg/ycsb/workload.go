@@ -51,6 +51,9 @@ type Workload interface {
 
 	// DoBatchTransaction does the batch transaction operation.
 	DoBatchTransaction(ctx context.Context, batchSize int, db DB) error
+
+	// GetStats (used for rocksdb)
+	GetStats(db DB) string
 }
 
 var workloadCreators = map[string]WorkloadCreator{}

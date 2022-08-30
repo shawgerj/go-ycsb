@@ -262,6 +262,10 @@ func (db *cassandraDB) Delete(ctx context.Context, table string, key string) err
 	return db.execQuery(ctx, query, key)
 }
 
+func (db *cassandraDB) GetStats() string {
+	return ""
+}
+
 func init() {
 	ycsb.RegisterDBCreator("cassandra", cassandraCreator{})
 	ycsb.RegisterDBCreator("scylla", cassandraCreator{})

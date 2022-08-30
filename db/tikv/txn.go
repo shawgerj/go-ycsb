@@ -303,6 +303,10 @@ func (db *txnDB) Delete(ctx context.Context, table string, key string) error {
 	return tx.Commit(ctx)
 }
 
+func (db *txnDB) GetStats() string {
+	return ""
+}
+
 func (db *txnDB) BatchDelete(ctx context.Context, table string, keys []string) error {
 	tx, err := db.beginTxn()
 	if err != nil {

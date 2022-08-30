@@ -340,6 +340,10 @@ func (db *sqliteDB) Delete(ctx context.Context, table string, key string) error 
 	return db.optimisticTx(ctx, func(tx *sql.Tx) error { return db.doDelete(ctx, tx, table, key) })
 }
 
+func (db *sqliteDB) GetStats() string {
+	return ""
+}
+
 func (db *sqliteDB) BatchInsert(ctx context.Context, table string, keys []string, values []map[string][]byte) error {
 	return db.optimisticTx(ctx, func(tx *sql.Tx) error {
 		for i := 0; i < len(keys); i++ {

@@ -192,6 +192,10 @@ func (db *fDB) Delete(ctx context.Context, table string, key string) error {
 	return err
 }
 
+func (db *fDB) GetStats() string {
+	return ""
+}
+
 type fdbCreator struct {
 }
 

@@ -341,6 +341,10 @@ func (c elasticCreator) Create(p *properties.Properties) (ycsb.DB, error) {
 	return m, nil
 }
 
+func (m *elastic) GetStats() string {
+	return ""
+}
+
 func init() {
 	ycsb.RegisterDBCreator("elastic", elasticCreator{})
 }

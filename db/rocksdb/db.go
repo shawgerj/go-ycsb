@@ -261,6 +261,10 @@ func (db *rocksDB) Delete(ctx context.Context, table string, key string) error {
 	return db.db.Delete(db.writeOpts, rowKey)
 }
 
+func (db *rocksDB) GetStats() string {
+	return db.db.GetProperty("rocksdb.stats")
+}
+
 func init() {
 	ycsb.RegisterDBCreator("rocksdb", rocksDBCreator{})
 }
