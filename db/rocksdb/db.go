@@ -50,6 +50,7 @@ const (
 	rocksdbUseFsync                        = "rocksdb.use_fsync"
 	rocksdbWriteBufferSize                 = "rocksdb.write_buffer_size"
 	rocksdbMaxWriteBufferNumber            = "rocksdb.max_write_buffer_number"
+	rocksdbTargetFileSizeBase              = "rocksdb.target_file_size_base"
 	// TableOptions/BlockBasedTable
 	rocksdbBlockSize                        = "rocksdb.block_size"
 	rocksdbBlockSizeDeviation               = "rocksdb.block_size_deviation"
@@ -159,6 +160,7 @@ func getOptions(p *properties.Properties) *gorocksdb.Options {
 	opts.SetUseFsync(p.GetBool(rocksdbUseFsync, false))
 	opts.SetWriteBufferSize(p.GetInt(rocksdbWriteBufferSize, 64<<20))
 	opts.SetMaxWriteBufferNumber(p.GetInt(rocksdbMaxWriteBufferNumber, 2))
+	opts.SetTargetFileSizeBase(p.GetUint64(rocksdbTargetFileSizeBase, 2<<20))
 	opts.SetWalDir(p.GetString(rocksdbWALDir, ""))
 
 	opts.SetBlockBasedTableFactory(getTableOptions(p))
