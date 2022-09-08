@@ -258,8 +258,8 @@ func (c *core) verifyRow(state *coreState, key string, values map[string][]byte)
 	}
 }
 
-func (c *core) GetStats(db ycsb.DB) string {
-	return db.GetStats()
+func (c *core) GetStats(ctx context.Context, db ycsb.DB) string {
+	return db.GetStats(ctx, c.table, c.buildKeyName(keyNum))
 }
 
 // DoInsert implements the Workload DoInsert interface.

@@ -191,7 +191,8 @@ func (db *rawDB) Delete(ctx context.Context, table string, key string) error {
 	return db.db.Delete(ctx, db.getRowKey(table, key))
 }
 
-func (db *rawDB) GetStats() string {
+func (db *rawDB) GetStats(ctx context.Context, table string, key string) string {
+	db.db.PrintStats(ctx, db.getRowKey(table, key))
 	return ""
 }
 
