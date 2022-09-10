@@ -18,13 +18,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/tikv/client-go/v2/txnkv"
-	"github.com/tikv/client-go/v2/txnkv/transaction"
+	"github.com/shawgerj/client-go/v2/txnkv"
+	"github.com/shawgerj/client-go/v2/txnkv/transaction"
 
 	"github.com/magiconair/properties"
 	"github.com/pingcap/go-ycsb/pkg/util"
 	"github.com/pingcap/go-ycsb/pkg/ycsb"
-	tikverr "github.com/tikv/client-go/v2/error"
+	tikverr "github.com/shawgerj/client-go/v2/error"
 )
 
 const (
