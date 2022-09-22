@@ -353,8 +353,8 @@ func (db *spannerDB) Delete(ctx context.Context, table string, key string) error
 	return err
 }
 
-func (db *spannerDB) GetStats() string {
-	return ""
+func (db *spannerDB) GetStats(ctx context.Context, table string, key string) error {
+	return nil
 }
 
 func init() {

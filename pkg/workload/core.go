@@ -258,7 +258,12 @@ func (c *core) verifyRow(state *coreState, key string, values map[string][]byte)
 	}
 }
 
-func (c *core) GetStats(ctx context.Context, db ycsb.DB) string {
+func (c *core) GetStats(ctx context.Context, db ycsb.DB) error {
+    // kind of a weird way to make a key for my purposes, but it's
+    // what DoInsert does...
+	state := ctx.Value(stateKey).(*coreState)
+	r := state.r
+	keyNum := c.keySequence.Next(r)
 	return db.GetStats(ctx, c.table, c.buildKeyName(keyNum))
 }
 

@@ -144,8 +144,8 @@ func (db *pegasusDB) Delete(ctx context.Context, table string, key string) error
 	return err
 }
 
-func (db *pegasusDB) GetStats() string {
-	return ""
+func (db *pegasusDB) GetStats(ctx context.Context, table string, key string) error {
+	return nil
 }
 
 type pegasusCreator struct{}

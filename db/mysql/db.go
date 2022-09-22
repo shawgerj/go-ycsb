@@ -436,8 +436,8 @@ func (db *mysqlDB) Delete(ctx context.Context, table string, key string) error {
 	return db.execQuery(ctx, query, key)
 }
 
-func (db *mysqlDB) GetStats() string {
-	return ""
+func (db *mysqlDB) GetStats(ctx context.Context, table string, key string) error {
+	return nil
 }
 
 func (db *mysqlDB) BatchDelete(ctx context.Context, table string, keys []string) error {

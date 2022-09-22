@@ -123,8 +123,8 @@ func (db *minioDB) Delete(ctx context.Context, table string, key string) error {
 	return db.db.RemoveObject(table, key)
 }
 
-func (db *minioDB) GetStats() string {
-	return ""
+func (db *minioDB) GetStats(ctx context.Context, table string, key string) error {
+	return nil
 }
 
 func init() {

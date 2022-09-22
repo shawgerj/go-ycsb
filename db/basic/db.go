@@ -250,8 +250,8 @@ func (db *basicDB) Delete(ctx context.Context, table string, key string) error {
 	return nil
 }
 
-func (db *basicDB) GetStats() string {
-	return ""
+func (db *basicDB) GetStats(ctx context.Context, table string, key string) error {
+	return nil
 }
 
 func (db *basicDB) BatchDelete(ctx context.Context, table string, keys []string) error {

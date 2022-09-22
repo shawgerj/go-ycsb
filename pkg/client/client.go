@@ -121,7 +121,7 @@ func (w *worker) run(ctx context.Context) {
 
 		// print stats every million ops
 		if (w.opsDone % 3000000) == 0  && w.opsDone != 0 {
-			fmt.Printf(w.workload.GetStats(w.workDB))
+			err = w.workload.GetStats(ctx, w.workDB)
 		}
 		
 		if w.doTransactions {

@@ -206,8 +206,8 @@ func (r *redis) Delete(ctx context.Context, table string, key string) error {
 	return r.client.Del(ctx, getKeyName(table, key)).Err()
 }
 
-func (db *redis) GetStats() string {
-	return ""
+func (db *redis) GetStats(ctx context.Context, table string, key string) error {
+	return nil
 }
 
 type redisCreator struct{}

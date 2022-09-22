@@ -262,8 +262,8 @@ func (db *cassandraDB) Delete(ctx context.Context, table string, key string) err
 	return db.execQuery(ctx, query, key)
 }
 
-func (db *cassandraDB) GetStats() string {
-	return ""
+func (db *cassandraDB) GetStats(ctx context.Context, table string, key string) error {
+	return nil
 }
 
 func init() {

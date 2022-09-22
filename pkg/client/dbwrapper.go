@@ -148,8 +148,8 @@ func (db DbWrapper) Delete(ctx context.Context, table string, key string) (err e
 	return db.DB.Delete(ctx, table, key)
 }
 
-func (db DbWrapper) GetStats() string {
-	return db.DB.GetStats()
+func (db DbWrapper) GetStats(ctx context.Context, table string, key string) error {
+	return db.DB.GetStats(ctx, table, key)
 }
 
 func (db DbWrapper) BatchDelete(ctx context.Context, table string, keys []string) (err error) {

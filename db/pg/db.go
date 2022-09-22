@@ -353,8 +353,8 @@ func (db *pgDB) Delete(ctx context.Context, table string, key string) error {
 	return db.execQuery(ctx, query, key)
 }
 
-func (db *pgDB) GetStats() string {
-	return ""
+func (db *pgDB) GetStats(ctx context.Context, table string, key string) error {
+	return nil
 }
 
 func init() {

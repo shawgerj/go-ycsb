@@ -70,7 +70,7 @@ type DB interface {
 	Delete(ctx context.Context, table string, key string) error
 
 	// GetStats from rocksdb
-	GetStats() string
+	GetStats(ctx context.Context, table string, key string) error
 }
 
 type BatchDB interface {

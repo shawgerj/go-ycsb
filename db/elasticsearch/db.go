@@ -341,8 +341,8 @@ func (c elasticCreator) Create(p *properties.Properties) (ycsb.DB, error) {
 	return m, nil
 }
 
-func (m *elastic) GetStats() string {
-	return ""
+func (m *elastic) GetStats(ctx context.Context, table string, key string) error {
+	return nil
 }
 
 func init() {

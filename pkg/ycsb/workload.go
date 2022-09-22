@@ -53,7 +53,7 @@ type Workload interface {
 	DoBatchTransaction(ctx context.Context, batchSize int, db DB) error
 
 	// GetStats (used for rocksdb)
-	GetStats(db DB) string
+	GetStats(ctx context.Context, db DB) error
 }
 
 var workloadCreators = map[string]WorkloadCreator{}

@@ -84,9 +84,8 @@ require (
 	github.com/remyoudompheng/bigfft v0.0.0-20200410134404-eec4a21b6bb0 // indirect
 	github.com/smartystreets/goconvey v0.0.0-20190330032615-68dc04aab96a // indirect
 	github.com/spf13/pflag v1.0.3 // indirect
-	github.com/stathat/consistent v1.0.0 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
-	github.com/tikv/pd/client v0.0.0-20220307081149-841fa61e9710 // indirect
+	github.com/tikv/pd/client v0.0.0-20220216070739-26c668271201 // indirect
 	github.com/twmb/murmur3 v1.1.3 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
 	github.com/xdg-go/scram v1.0.2 // indirect
@@ -119,3 +118,7 @@ require (
 replace github.com/apache/thrift => github.com/apache/thrift v0.0.0-20171203172758-327ebb6c2b6d
 
 go 1.18
+
+replace github.com/tikv/client-go/v2 => github.com/shawgerj/client-go/v2 v2.0.0-20220921235805-84266b9e66d3
+
+replace github.com/pingcap/kvproto => github.com/shawgerj/kvproto v0.0.0-20220921235339-c0618d54c94b

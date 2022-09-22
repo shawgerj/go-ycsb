@@ -239,8 +239,8 @@ func (db *boltDB) Delete(ctx context.Context, table string, key string) error {
 	return err
 }
 
-func (db *boltDB) GetStats() string {
-	return ""
+func (db *boltDB) GetStats(ctx context.Context, table string, key string) error {
+	return nil
 }
 
 func init() {

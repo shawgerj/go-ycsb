@@ -258,8 +258,8 @@ func (db *badgerDB) Delete(ctx context.Context, table string, key string) error 
 	return err
 }
 
-func (db *badgerDB) GetStats() string {
-	return ""
+func (db *badgerDB) GetStats(ctx context.Context, table string, key string) error {
+	return nil
 }
 
 func init() {
